@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Routes from "./routes";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import "react-toastify/dist/ReactToastify.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	const theme = createMuiTheme(
+		{
+			scrollbarStyles: {
+				"&::-webkit-scrollbar": {
+					width: "8px",
+					height: "8px",
+				},
+				"&::-webkit-scrollbar-thumb": {
+          borderRadius: "10px",
+					backgroundColor: "#b2b2b2",
+				},
+			},
+			palette: {
+				primary: { main: "#2576d2" },
+			},
+		}
+	);
+  
+	return (
+		<ThemeProvider theme={theme}>
+			<Routes />
+		</ThemeProvider>
+	);
+};
 
 export default App;
